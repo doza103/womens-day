@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy International Women's Day </title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    text-align:center;
+    color:white;
+}
+
+/* Card */
+
+.card{
+    background: rgba(255,255,255,0.15);
+    padding:35px;
+    border-radius:20px;
+    backdrop-filter: blur(10px);
+    max-width:400px;
+    z-index:2;
+}
+
+h1{
+    font-size:32px;
+}
+
+p{
+    font-size:18px;
+}
+
+/* Image */
+
+.photo{
+    width:200px;
+    border-radius:15px;
+    margin:15px 0;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Button */
+
+button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    background:white;
+    color:#ff4d6d;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Floating hearts */
+
+.heart{
+    position:absolute;
+    color:#ff4d6d;
+    font-size:20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-100vh);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Music -->
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+
+<h1>🌸 Happy Women's Day 🌸</h1>
+
+<img src="photo.jpg" class="photo">
+
+<p>
+Aditi you are the most amazing woman in my life, and there is not a day that goes by where I am not grateful for the blessing that you are.   
+You make every day brighter just by being in it.
+</p>
+
+<button onclick="showMessage()">Click me baby</button>
+
+<p id="hiddenMessage" style="display:none;font-size:20px;margin-top:15px;">
+I love you forever, always and even after that my suna skat
+</p>
+
+</div>
+
+<script>
+
+/* Surprise message */
+
+function showMessage(){
+document.getElementById("hiddenMessage").style.display="block";
+}
+
+/* Floating hearts generator */
+
+function createHeart(){
+const heart = document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML = "❤️";
+
+heart.style.left = Math.random()*100 + "vw";
+heart.style.fontSize = (Math.random()*20 + 15) + "px";
+heart.style.animationDuration = (Math.random()*3 + 4) + "s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
